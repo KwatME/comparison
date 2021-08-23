@@ -1,4 +1,4 @@
-from kraft.plot import plot_point
+from kwat.plot import plot_point
 from numpy import arange, where
 
 
