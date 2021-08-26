@@ -1,6 +1,7 @@
 import os
 import re
 
+import gsea
 import kwat
 import numpy as np
 import pandas as pd

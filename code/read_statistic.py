@@ -9,12 +9,12 @@ def read_statistic(co, na):
         [
             read_csv(
                 te.format("feature"),
-                "\t",
+                sep="\t",
                 index_col=0,
             ),
             read_csv(
                 te.format("set"),
-                "\t",
+                sep="\t",
                 index_col=0,
             ),
         ]
