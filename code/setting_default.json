@@ -1,12 +1,10 @@
 {
   "pr": {
     "axd": 0,
-    "n_no": 8,
+    "n_no": -1,
     "n_un": 2,
     "lo": 2,
-    "sh": 1,
-    "no": "-0-",
-    "axn": 0
+    "sh": 1
   },
 
   "co_": [],
@@ -16,14 +14,14 @@
   "n_ex": 8,
   "n_sa": 10,
   "n_sh": 10,
-  "st": 3.2,
+  "st": 4,
 
   "n_ge": 3,
   "._ge": 0.9,
 
   "sc": "get_ic",
 
-  "fe_": ["XIST"],
+  "fe_": ["XIST", "HLA-A", "HLA-B", "HLA-C", "HLA-D", "HLA-E"],
 
   "se_": ["HALLMARK_MYC_TARGETS_V2"],
 
