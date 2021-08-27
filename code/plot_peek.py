@@ -6,18 +6,22 @@ def plot_peek(se, la_, pa):
 
     da = se.dropna().sort_values().to_frame()
 
-    da["Rank"] = arange(da.shape[0])
+    nu_ = da.values[:, 0]
 
-    da["Size"] = 2
+    da.loc[:, "Rank"] = arange(nu_.size)
 
-    da["Color"] = where(da["Score"] < 0, "#0088ff", "#ff1968")
+    da.loc[:, "Size"] = 2
 
-    da["Score"] = da["Score"].abs()
+    da.loc[:, "Color"] = where(nu_ < 0, "#0088ff", "#ff1968")
 
-    da["Opacity"] = 0.48
+    da.loc[:, "Score"] = nu_.abs()
 
-    da["Annotate"] = [la in la_ for la in da.index]
+    da.loc[:, "Opacity"] = 0.48
 
-    da.loc[da["Annotate"], ["Size", "Color", "Opacity"]] = [8, "#20d9ba", 1]
+    an_ = [ro in la_ for ro in da.index.values]
+
+    da.loc[:, "Annotate"] = an_
+
+    da.loc[an_, ["Size", "Color", "Opacity"]] = [8, "#20d9ba", 1]
 
     plot_point(da, title="Peek", pa="{}peek.html".format(pa))
