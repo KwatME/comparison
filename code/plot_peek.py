@@ -1,5 +1,5 @@
 from kwat.plot import plot_point
-from numpy import arange, where
+from numpy import absolute, arange, where
 
 
 def plot_peek(se, la_, pa):
@@ -14,7 +14,7 @@ def plot_peek(se, la_, pa):
 
     da.loc[:, "Color"] = where(nu_ < 0, "#0088ff", "#ff1968")
 
-    da.loc[:, "Score"] = nu_.abs()
+    da.loc[:, "Score"] = absolute(nu_)
 
     da.loc[:, "Opacity"] = 0.48
 
