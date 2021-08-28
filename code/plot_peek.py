@@ -1,27 +1,30 @@
 from kwat.plot import plot_point
 from numpy import absolute, arange, where
+from pandas import DataFrame
 
 
 def plot_peek(se, la_, pa):
 
-    da = se.dropna().sort_values().to_frame()
+    se = se.dropna().sort_values()
 
-    nu_ = da.values[:, 0]
+    nu_ = se.values
 
-    da.loc[:, "Rank"] = arange(nu_.size)
+    las_ = se.index.values
 
-    da.loc[:, "Size"] = 2
+    bo_ = [la in la_ for la in las_]
 
-    da.loc[:, "Color"] = where(nu_ < 0, "#0088ff", "#ff1968")
+    da = DataFrame(
+        data={
+            se.name: absolute(nu_),
+            "Rank": arange(nu_.size),
+            "Size": 2,
+            "Color": where(nu_ < 0, "#0088ff", "#ff1968"),
+            "Opacity": 0.48,
+            "Annotate": bo_,
+        },
+        index=las_,
+    )
 
-    da.loc[:, "Score"] = absolute(nu_)
-
-    da.loc[:, "Opacity"] = 0.48
-
-    an_ = [ro in la_ for ro in da.index.values]
-
-    da.loc[:, "Annotate"] = an_
-
-    da.loc[an_, ["Size", "Color", "Opacity"]] = [8, "#20d9ba", 1]
+    da.loc[bo_, ["Size", "Color", "Opacity"]] = [8, "#20d9ba", 0.8]
 
     plot_point(da, title="Peek", pa="{}peek.html".format(pa))
