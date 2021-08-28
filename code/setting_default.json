@@ -12,16 +12,16 @@
   "n_jo": 1,
 
   "n_ex": 8,
-  "n_sa": 10,
-  "n_sh": 10,
+  "n_sa": 3,
+  "n_sh": 3,
   "st": 4,
 
   "n_ge": 3,
-  "._ge": 0.9,
+  "._ge": 0.8,
 
   "sc": "get_ic",
 
-  "fe_": ["XIST", "HLA-A", "HLA-B", "HLA-C", "HLA-D", "HLA-E"],
+  "fe_": ["CD4", "HLA-A", "HLA-B", "HLA-C", "HLA-DRA", "HLA-DRB1", "HLA-E"],
 
   "se_": ["HALLMARK_MYC_TARGETS_V2"],
 
